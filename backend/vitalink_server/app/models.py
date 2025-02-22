@@ -2,10 +2,14 @@ from django.db import models
 
 # Create your models here.
 
-# class Configs
+class Config(models.Model):
+    age = models.IntegerField()
+    gender = models.IntegerField()
 
 class VitalinkRecord(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
+    age = models.IntegerField()
+    gender = models.IntegerField()
     spo2 = models.IntegerField("Oxygen Saturation")
     temp = models.FloatField("Body Temperature")
     bpm = models.IntegerField("Heartbeat Rate")
