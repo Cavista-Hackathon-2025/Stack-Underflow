@@ -3,8 +3,18 @@ import HomePage from "./pages/HomePage";
 import AppLayout from "./ui/AppLayout";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./Pages/DashboardPage";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      oonce: true,
+    });
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
