@@ -9,7 +9,7 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				<Route element={<AppLayout />}>
-					<Route index element={<Navigate replace to="home" />} />
+					<Route index element={<Navigate replace to="login" />} />
 					<Route path="login" element={<LoginPage />} />
 					<Route path="home" element={<HomePage />} />
 					<Route path="dashboard" element={<DashboardPage />} />
