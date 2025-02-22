@@ -1,12 +1,5 @@
-
-
 function App() {
-
-  return (
-    <>
-  
-    </>
-  )
+  return <div className="text-2xl font-bold">hello world</div>;
 }
 
-export default App
+export default App;
