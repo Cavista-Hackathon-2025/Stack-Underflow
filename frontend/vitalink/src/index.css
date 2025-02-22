@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,12 +8,18 @@
   padding: 0;
   text-decoration: none;
   outline: none;
+  text-transform: capitalize;
   box-sizing: border-box;
   transition: 0.3s ease-in-out all;
 }
 
 body {
   font-family: "Rubik", serif;
+  background-color: rgb(26, 23, 23);
+  color: white;
+}
+.section {
+  padding: 1rem 6%;
 }
 
 html {
