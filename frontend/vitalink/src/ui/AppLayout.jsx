@@ -1,5 +1,6 @@
+import {Outlet} from "react-router-dom"
 const AppLayout = () => {
-	return <div className="text-5xl">AppLayout</div>;
+	return <div className="text-5xl w-full h-full bg-red-700"><div><Outlet/></div></div>;
 };
 
 export default AppLayout;
