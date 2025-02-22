@@ -1,11 +1,19 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from app.models import *
+import tensorflow as tf
+from tensorflow.keras.models import load_model
+import os
+
+
+file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "model1.h5")
 
 # Create your views here.
 
 def getBP(age, gender, spo2, bpm, temp):
-    return 110, 20
+    model = load_model(file_path)
+    pred = model.predict(tf.constant([[age, gender, spo2, bpm, temp]]))
+    return pred[0][0], pred[0][1]
 
 def getAlert(spo2, bpm, temp, sbp, dbp):
     return "Drink Water"
