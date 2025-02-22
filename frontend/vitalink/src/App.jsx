@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
 import LoginPage from "./pages/LoginPage";
@@ -17,6 +18,10 @@ function App() {
 			</Routes>
 		</BrowserRouter>
 	);
+=======
+function App() {
+  return <div className="text-2xl font-bold">hello world</div>;
+>>>>>>> 7696bfef472657574dd4e9cd3b0c629203013e3f
 }
 
 export default App;
