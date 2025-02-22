@@ -77,7 +77,7 @@ Blood Pressure Prediction Model
 
 Directory Structure
 
-healthguardian/
+vitalink/
 ├── frontend/           # React app
 │   ├── public/
 │   └── src/
