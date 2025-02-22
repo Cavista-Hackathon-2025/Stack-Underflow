@@ -6,13 +6,13 @@ from tensorflow.keras.models import load_model
 import os
 
 
-file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "model1.h5")
+file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "model2.keras")
 
 # Create your views here.
 
 def getBP(age, gender, spo2, bpm, temp):
     model = load_model(file_path)
-    pred = model.predict(tf.constant([[age, gender, spo2, bpm, temp]]))
+    pred = model.predict(tf.constant([[int(age), int(gender), int(spo2), int(bpm), float(temp)]]))
     return pred[0][0], pred[0][1]
 
 def getAlert(spo2, bpm, temp, sbp, dbp):
@@ -29,9 +29,9 @@ def push_data(request):
 
         age = config.age
         gender = config.gender
-        spo2 = request.GET["spo2"]
-        bpm = request.GET["bpm"]
-        temp = request.GET["temp"]
+        spo2 = int(request.GET["spo2"])
+        bpm = int(request.GET["bpm"])
+        temp = float(request.GET["temp"])
         sbp, dbp = getBP(age, gender, spo2, bpm, temp)
         alert = getAlert(spo2, bpm, temp, sbp, dbp)
 
@@ -53,7 +53,7 @@ def pull_data(request):
 def update(request):
     if request.method == "GET":
         config = Config.objects.all()[0]
-        config.age = request.GET["age"]
-        config.gender = request.GET["gender"]
+        config.age = int(request.GET["age"])
+        config.gender = int(request.GET["gender"])
         config.save()
         return JsonResponse({"success": True})
