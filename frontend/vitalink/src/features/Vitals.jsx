@@ -58,9 +58,9 @@ const Vitals = () => {
             </span>
             <span className="text-3xl font-semibold">Blood pressure</span>
           </div>
-          <div className="my-16 ">
-            <span className="text-7xl my-10 font-bold">88/</span>
-            <span className="text-5xl font-semibold">77</span>
+          <div className="my-16">
+            <span className="text-7xl my-10 font-bold">88</span>
+            <span className="text-5xl font-semibold">/77</span>
             <span className="text-2xl font-medium normal-case">mmhg</span>
           </div>
           <div className="mt-5 text-2xl font-medium bg-red-500 w-max py-1 px-5 rounded-sm">normal</div>
