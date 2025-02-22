@@ -6,7 +6,7 @@ const Dashboard = () => {
   return (
     <div className="w-full h-full section">
       <div className="w-full h-full flex justify-between text-white items-center">
-        <div className="w-full flex items-center gap-x-2">
+        <div className="w-full flex items-center gap-x-1">
           <img src="/vitaLink_logo.jpg" alt="logo image" className="w-[4rem] h-[4rem] rounded-full" />
           <span className="italic text-xl font-bold">vitalLink</span>
         </div>
@@ -27,6 +27,7 @@ const Dashboard = () => {
       <div className="">
         <Vitals />
       </div>
+
       <div className="my-24 grid md:grid-cols-2 grid-cols-1 gap-10">
         <div className="w-full bg-green-400 p-4 rounded-2xl">
           <div className="text-3xl font-bold mb-10">health chart</div>
