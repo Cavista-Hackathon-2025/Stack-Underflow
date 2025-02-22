@@ -1,4 +1,4 @@
-Vitalink: Remote Patient Monitoring System
+Vitalink: Remote Patient Monitoring System with AI Driven Insight
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![Tech Stack](https://img.shields.io/badge/Stack-React%20%7C%20Django%20%7C%20TensorFlow%20%7C%20ESP32-brightgreen)
