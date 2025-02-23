@@ -5,12 +5,12 @@ import Vitals from "./Vitals";
 
 const Dashboard = () => {
   const [userData, setUserData] = useState({
+    name: "",
     age: "",
     gender: "",
   });
 
   const vitalData = useVitalData();
-  console.log(vitalData);
 
   useEffect(() => {
     const storedUserData = localStorage.getItem("userData");
@@ -38,6 +38,7 @@ const Dashboard = () => {
 
       <div className=" mt-10 lg:w-[40%] sm:w-[60%] w-[85%] text-white">
         <div className="grid grid-cols-2 gap-y-5">
+          <div className="text-2xl font-semibold">Name: {userData.name}</div>
           <div className="text-2xl font-semibold">Gender: {userData.gender}</div>
 
           <div className="text-2xl font-semibold">age: {userData.age} years</div>

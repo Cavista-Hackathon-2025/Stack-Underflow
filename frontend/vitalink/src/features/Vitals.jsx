@@ -48,8 +48,6 @@ const Vitals = ({ vitalData }) => {
       setSpo2Stage("Low Oxygen ");
     } else if (vitalData.spo2 >= 95 && vitalData.spo2 <= 100) {
       setSpo2Stage("Normal ");
-    } else {
-      setSpo2Stage("Unknown");
     }
   }, [vitalData.spo2]);
 
@@ -136,7 +134,7 @@ const Vitals = ({ vitalData }) => {
         <div data-aos="fade-right" className="bg-white border border-gray-600 relative shadow-[1px_1px_4px_rgba(0,0,0,0.9)] p-8 rounded-2xl">
           <div className="absolute flex items-center top-1 right-2">
             <img src="/ai_logo.png" alt="ai image" className="w-[2rem] h-[2rem] object-cover" />
-            <span className="text-base font-medium">AI generated</span>
+            <span className="text-xl font-medium">AI generated</span>
           </div>
           <div className="flex items-center  justify-between mb-5">
             <motion.span
