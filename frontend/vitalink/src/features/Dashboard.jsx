@@ -29,11 +29,11 @@ const Dashboard = () => {
       </div>
 
       <div className="my-24 grid md:grid-cols-2 grid-cols-1 gap-10">
-        <div className="w-full bg-green-400 p-4 rounded-2xl">
+        <div className="w-full bg-white p-4 rounded-2xl">
           <div className="text-3xl font-bold mb-10">health chart</div>
           <Chart />
         </div>
-        <div className="w-full bg-green-400 p-4 rounded-2xl">
+        <div className="w-full bg-white p-4 rounded-2xl">
           <div className="text-3xl font-bold pb-5"> suggestions</div>
           <div className="text-xl text-gray-700">
             <ul className="flex flex-col gap-y-5">
@@ -51,11 +51,6 @@ const Dashboard = () => {
       </div>
     </div>
   );
-};
-
-export default Dashboard;
-const Dashboard = () => {
-	return <div>Dashboard</div>;
 };
 
 export default Dashboard;
