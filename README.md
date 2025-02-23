@@ -18,8 +18,8 @@ A real-time, AI-driven remote patient monitoring system for tracking SpO₂, hea
 
 Prerequisites
 - Node.js v18 & npm (Frontend)
-- Python  3.10 (Backend)
-- PlatformIO/Arduino IDE (ESP32)
+- Python  3.10 (Backend) including Django and Tensorflow 
+- Arduino IDE & C++ espressif framework(ESP32)
 
 Frontend Setup
 bash
@@ -30,13 +30,10 @@ npm run dev
 
 
 Backend Setup
-bash
-cd vitalink/backend
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver 
+-django setup
+-tensorflow on jupyter notebook
+-hosting on pythonanywhere.com
+
 
 ---
 
@@ -47,30 +44,24 @@ Components
 - MAX30102 Pulse Oximeter
 - DS18B20 Temperature Sensor
 - Jumper Wires
+- SIM 900 arduino shield
 
+  
 Configuration
-1. Wiring:
-   - MAX30102: Connect SDA/SCL to ESP32 pins 21/22.
-   - DS18B20: Connect data pin to ESP32 GPIO 4.
-2. Libraries:
-   - Install `Adafruit_MAX3010x`, `OneWire`, and `DallasTemperature` via Arduino Library Manager.
-3. Code:
-   - Flash `esp32_sensor.ino` to ESP32 (update WiFi credentials in code).
+Tensorflow model is an Multilayer peceptron with 5 input neurons, a normalizer, 3 hidden layers and 2 two output
+the model tries to use age, gender, oxygen saturation, heartbeat rate, and body temperature to approximate the Blood pressure both diastolic and systolic
 
 
 
 AI/ML Integration
 Blood Pressure Prediction Model
 - Inputs: Heart rate, SpO₂, temperature.
----
+- Datasets: kaggle medical vitals dataset with over 200,000 records.
 
- Usage
-1. Start Services:
-   - Frontend: `npm run dev`
-   - Backend: `python manage.py runserver`
-   - ESP32: Power on and connect to WiFi.
-2. Dashboard:
-   - View real-time vitals at `http://localhost:3000`.
+Overview
+uses and esp32 to read values from provided sensors and send those values to the backendserver at http://vitalink.pythonanywhere.com
+which stores and displays on it panel. both as tabular (admin panel) and Asthetically (hosted Locally).
+
    
 
 ---
@@ -99,7 +90,7 @@ MIT License. See [LICENSE](LICENSE) for details.
 ---
 
  Acknowledgements
-- [MIMIC-III Dataset](https://physionet.org/content/mimiciii/) for clinical validation.
+- Kaggke Medical Vitals dataset(https://www.kaggle.com/datasets/nasirayub2/human-vital-sign-dataset) for clinical validation.
 - [Adafruit MAX3010x Library](https://github.com/adafruit/Adafruit_MAX3010x) for sensor integration.
 
 ---
