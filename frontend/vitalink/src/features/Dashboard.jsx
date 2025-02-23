@@ -17,10 +17,8 @@ const Dashboard = () => {
 
       <div className=" mt-10 lg:w-[40%] sm:w-[60%] w-[85%] text-white">
         <div className="grid grid-cols-2 gap-y-5">
-          <div className="text-2xl font-semibold">name: john doe</div>
-          <div className="text-2xl font-semibold">email: johndoe@gmail.com</div>
+          <div className="text-2xl font-semibold">gender: john</div>
           <div className="text-2xl font-semibold">age: 44 years</div>
-          <div className="text-2xl font-semibold">contact no: +000 000 000</div>
         </div>
       </div>
 
@@ -29,11 +27,12 @@ const Dashboard = () => {
       </div>
 
       <div className="my-24 grid md:grid-cols-2 grid-cols-1 gap-10">
-        <div className="w-full bg-white p-4 rounded-2xl">
+        <div data-aos="fade-left" className="w-full bg-white p-4 rounded-2xl">
           <div className="text-3xl font-bold mb-10">health chart</div>
           <Chart />
         </div>
-        <div className="w-full bg-white p-4 rounded-2xl">
+
+        <div data-aos="fade-left" className="w-full bg-white p-4 rounded-2xl">
           <div className="text-3xl font-bold pb-5"> suggestions</div>
           <div className="text-xl text-gray-700">
             <ul className="flex flex-col gap-y-5">

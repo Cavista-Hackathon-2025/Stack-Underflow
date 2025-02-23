@@ -13,6 +13,7 @@ const Login = () => {
 
   return (
     <form
+      data-aos="zoom-in"
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col justify-center items-center text-center max-w-[45rem] w-full mx-auto bg-white p-7 rounded-2xl shadow-lg"
     >
@@ -35,7 +36,7 @@ const Login = () => {
         })}
         type="number"
         placeholder="Enter your age"
-        className="w-full border-2 border-gray-600 rounded-2xl h-[5rem] px-4 py-6 mb-4 text-xl"
+        className="w-full border-2 border-gray-600 rounded-xl h-[5rem] px-4 py-6 mb-4 text-xl"
       />
       {errors.age && <p className="text-red-500 text-xl mb-4">{errors.age.message}</p>}
 
@@ -43,7 +44,7 @@ const Login = () => {
         {...register("gender", {
           required: "Please select your gender",
         })}
-        className="w-full border-2 border-gray-600 rounded-2xl  h-[5rem] pl-2 text-xl"
+        className="w-full border-2 border-gray-600 rounded-xl  h-[5rem] pl-2 text-xl"
       >
         <option value="">Select your gender</option>
         <option value="male">Male</option>
