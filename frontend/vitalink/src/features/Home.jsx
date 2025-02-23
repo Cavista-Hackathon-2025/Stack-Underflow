@@ -11,16 +11,25 @@ const Home = () => {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-[70%] text-center">
         <div data-aos="fade-right" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <h2 className="text-3xl font-semibold text-white mb-4 ">Health Records</h2>
-          <p className="text-gray-600 sm:text-2xl text-3xl normal-case">Access and manage your medical history securely.</p>
+          <h2 className="text-3xl font-semibold text-white mb-4 ">Live Vitals, Anytime, Anywhere</h2>
+          <p className="text-gray-600 sm:text-2xl text-3xl normal-case">
+            Track heartbeat, temperature, SpO2, Diastolic Blood Pressure and the Systolic Blood Pressure 24/7 with our ESP32 sensor. No bulky
+            equipments-just continuous, hospital-grade monitoring from home.
+          </p>
         </div>
         <div data-aos="fade-right" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <h2 className="text-3xl font-semibold text-white mb-4 ">Appointments</h2>
-          <p className="text-gray-600 sm:text-2xl text-3xl normal-case">Schedule and track your medical appointments.</p>
+          <h2 className="text-3xl font-semibold text-white mb-4 ">Your Care Team, Always Connected</h2>
+          <p className="text-gray-600 sm:text-2xl text-3xl normal-case">
+            Clinicians see vital signs remotely without having to visit, an alert is sent to the clinicians if the vital reading is abnormal and
+            immediate response is provided.{" "}
+          </p>
         </div>
         <div data-aos="fade-right" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <h2 className="text-3xl font-semibold text-white mb-4 ">Healthcare Network</h2>
-          <p className="text-gray-600 sm:text-2xl text-3xl normal-case">Connect with healthcare providers in your area.</p>
+          <h2 className="text-3xl font-semibold text-white mb-4 ">Cuffless Blood Pressure Tracking</h2>
+          <p className="text-gray-600 sm:text-2xl text-3xl normal-case">
+            Say goodbye to uncomfortable arm cuffs. Our AI estimated blood pressure using just your heartbeat, SpO2, temperature, age and gender - no
+            squeezing required.
+          </p>
         </div>
       </div>
 
