@@ -12,19 +12,37 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Form submitted:", data);
-
-    setIsLoading(true);
+  const onSubmit = async (data) => {
     try {
-      // Store user data in localStorage
-      localStorage.setItem("userData", JSON.stringify(data));
-      // Navigate to dashboard
+      setIsLoading(true); // Start loading before request
+
+      const response = await fetch(`http://vitalink.pythonanywhere.com/update?age=${data.age}&gender=${data.gender}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          age: data.age,
+          gender: data.gender,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const responseData = await response.json();
+      console.log("Response:", responseData);
+
+      localStorage.setItem("userData", JSON.stringify(responseData));
+      alert("Data updated successfully!");
+
       navigate("/home");
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error updating user data:", error);
+      alert("Failed to update data");
     } finally {
-      setIsLoading(false);
+      setIsLoading(false); // Stop loading after request
     }
   };
 
@@ -73,8 +91,8 @@ const Login = () => {
         className="w-full border-2 border-gray-600 rounded-2xl  h-[5rem] pl-2 text-xl"
       >
         <option value="">Select your gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
+        <option value="1">Male</option>
+        <option value="0">Female</option>
       </select>
       {errors.gender && <p className="text-red-500 text-xl mb-4">{errors.gender.message}</p>}
 

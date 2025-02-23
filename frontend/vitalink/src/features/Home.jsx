@@ -1,6 +1,20 @@
 import { Link } from "react-router-dom";
+import { useVitalData } from "../service/apiVital";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [status, setStatus] = useState("");
+  const vitals = useVitalData();
+
+  const checkVitals = () => {
+    if (vitals.online) {
+      setStatus("Connected");
+      setTimeout(() => navigate("/dashboard"), 1000); // Redirect after 1s
+    } else {
+      setStatus("Not Connected");
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen bg-blue-400 p-8">
       <h1 data-aos="fade-left" className="text-5xl font-bold text-white mb-4">
@@ -41,7 +55,11 @@ const Home = () => {
 
       <div className="mt-8">
         <Link to="/dashboard">
-          <button className="bg-blue-600 capitalize text-white text-2xl sm:px-14 sm:py-4 px-16 py-6 font-semibold rounded-lg hover:scale-95 transition-all  hover:bg-blue-800 duration-300">
+          {/* <p className={`mt-2 text-lg ${status === "Connected" ? "text-green-500" : "text-red-500"}`}>{status}</p> */}
+          <button
+            // onClick={checkVitals}
+            className="bg-blue-600 capitalize text-white text-2xl sm:px-14 sm:py-4 px-16 py-6 font-semibold rounded-lg hover:scale-95 transition-all  hover:bg-blue-800 duration-300"
+          >
             check vitals
           </button>
         </Link>
