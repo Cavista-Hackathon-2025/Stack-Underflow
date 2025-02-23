@@ -62,7 +62,7 @@ const Home = () => {
           </p>
           <button
             onClick={checkVitals}
-            // disabled={!vitalData.online ? "disabled" : "enabled"}
+            disabled={!vitalData.online ? "disabled" : "enabled"}
             className="bg-blue-600 capitalize cursor-pointer text-white text-2xl sm:px-14 sm:py-4 px-16 py-6 font-semibold rounded-lg hover:scale-95 transition-all  hover:bg-blue-800 duration-300"
           >
             check vitals
