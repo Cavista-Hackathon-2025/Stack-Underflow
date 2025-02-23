@@ -90,7 +90,7 @@ MIT License. See [LICENSE](LICENSE) for details.
 ---
 
  Acknowledgements
-- [MIMIC-III Dataset](https://physionet.org/content/mimiciii/) for clinical validation.
+- Kaggke Medical Vitals dataset(https://www.kaggle.com/datasets/nasirayub2/human-vital-sign-dataset) for clinical validation.
 - [Adafruit MAX3010x Library](https://github.com/adafruit/Adafruit_MAX3010x) for sensor integration.
 
 ---
