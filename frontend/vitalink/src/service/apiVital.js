@@ -35,8 +35,8 @@ export function useVitalData() {
     };
 
     fetchData();
-    // const interval = setInterval(fetchData, 5000);
-    return () => clearInterval();
+    const interval = setInterval(fetchData, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   return vitalData;
