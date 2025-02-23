@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const [status, setStatus] = useState("");
-  const vitals = useVitalData();
+  const vitalData = useVitalData();
 
   const checkVitals = () => {
     if (vitals.online) {
@@ -23,6 +23,7 @@ const Home = () => {
       <p data-aos="fade-left" className="text-2xl text-white text-center normal-case mb-8">
         Connecting real-time health monitoring swith smart automation
       </p>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-[80%] text-center">
         <div data-aos="fade-right" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <h2 className="text-3xl font-semibold text-black/75 normal-case mb-5 ">Live vitals, anytime, anywhere</h2>
@@ -46,6 +47,7 @@ const Home = () => {
           </p>
         </div>
       </div>
+
       <div className="">
         <div className="text-2xl font-semibold text-white text-center my-5 italic normal-case">
           Make sure device is connected to be able to check vitals.
@@ -55,10 +57,13 @@ const Home = () => {
 
       <div className="mt-8">
         <Link to="/dashboard">
-          {/* <p className={`mt-2 text-lg ${status === "Connected" ? "text-green-500" : "text-red-500"}`}>{status}</p> */}
+          <p className={`mt-2 text-xl font-semibold text-center my-3 ${vitalData.online ? "text-green-500" : "text-red-500"}`}>
+            {vitalData.online ? "Device Connected" : "device Not connected"}
+          </p>
           <button
-            // onClick={checkVitals}
-            className="bg-blue-600 capitalize text-white text-2xl sm:px-14 sm:py-4 px-16 py-6 font-semibold rounded-lg hover:scale-95 transition-all  hover:bg-blue-800 duration-300"
+            onClick={checkVitals}
+            // disabled={!vitalData.online ? "disabled" : "enabled"}
+            className="bg-blue-600 capitalize cursor-pointer text-white text-2xl sm:px-14 sm:py-4 px-16 py-6 font-semibold rounded-lg hover:scale-95 transition-all  hover:bg-blue-800 duration-300"
           >
             check vitals
           </button>

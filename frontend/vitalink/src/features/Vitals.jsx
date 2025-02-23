@@ -10,7 +10,7 @@ const Vitals = ({ vitalData }) => {
 
   // Heart Rate Classification
   useEffect(() => {
-    if (vitalData.bpm >= 16 && vitalData.bpm <= 26) {
+    if (vitalData.bpm >= 0 && vitalData.bpm <= 26) {
       setHeartStage("Severe Bradycardia");
     } else if (vitalData.bpm >= 50 && vitalData.bpm <= 80) {
       setHeartStage("Mild Bradycardia");
@@ -20,8 +20,6 @@ const Vitals = ({ vitalData }) => {
       setHeartStage("Elevated");
     } else if (vitalData.bpm > 160) {
       setHeartStage("High");
-    } else {
-      setHeartStage("Unknown");
     }
   }, [vitalData.bpm]);
 
@@ -134,7 +132,7 @@ const Vitals = ({ vitalData }) => {
         <div data-aos="fade-right" className="bg-white border border-gray-600 relative shadow-[1px_1px_4px_rgba(0,0,0,0.9)] p-8 rounded-2xl">
           <div className="absolute flex items-center top-1 right-2">
             <img src="/ai_logo.png" alt="ai image" className="w-[2rem] h-[2rem] object-cover" />
-            <span className="text-xl font-medium">AI generated</span>
+            <span className="text-base font-medium">AI generated</span>
           </div>
           <div className="flex items-center  justify-between mb-5">
             <motion.span

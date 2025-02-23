@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
@@ -6,43 +6,66 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  const [userData, setUserData] = useState({
+    name: "",
+    age: "",
+    gender: "",
+  });
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  // const storeUserData = (data) => {
+  //   if (data.name && data.age && data.gender) {
+  //     localStorage.setItem("userData", JSON.stringify(data));
+
+  //     // Verify if storage was successful
+  //     const storedData = localStorage.setItem("userData");
+
+  //     if (!storedData) {
+  //       throw new Error("Data not saved in localStorage!");
+  //     }
+  //   } else {
+  //     console.warn("Missing required data, skipping localStorage storage");
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   const storedUser = localStorage.setItem("userData", JSON.stringify(userData));
+  //   if (storedUser) {
+  //     setUserData(storedUser);
+  //   }
+  // }, []);
+
   const onSubmit = async (data) => {
     try {
-      setIsLoading(true); // Start loading before request
+      setIsLoading(true); // Start loading
 
-      const response = await fetch(`http://vitalink.pythonanywhere.com/update?age=${data.age}&gender=${data.gender}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          age: data.age,
-          gender: data.gender,
-        }),
-      });
+      const response = await fetch(`http://vitalink.pythonanywhere.com/update?age=${data.age}&gender=${data.gender}`);
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
       const responseData = await response.json();
-      console.log("Response:", responseData);
+      console.log("API Response Data:", responseData);
 
-      localStorage.setItem("userData", JSON.stringify(responseData));
-      alert("Data updated successfully!");
+      localStorage.setItem("userData", JSON.stringify(data));
 
-      navigate("/home");
+      // Store in localStorage using the new function
+      // storeUserData(responseData);
+
+      // Delay navigation to ensure storage happens first
+      setTimeout(() => {
+        navigate("/home");
+      }, 500);
     } catch (error) {
       console.error("Error updating user data:", error);
-      alert("Failed to update data");
     } finally {
-      setIsLoading(false); // Stop loading after request
+      setIsLoading(false); // Stop loading
     }
   };
 
