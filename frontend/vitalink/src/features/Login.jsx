@@ -1,6 +1,11 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -9,6 +14,18 @@ const Login = () => {
 
   const onSubmit = (data) => {
     console.log("Form submitted:", data);
+
+    setIsLoading(true);
+    try {
+      // Store user data in localStorage
+      localStorage.setItem("userData", JSON.stringify(data));
+      // Navigate to dashboard
+      navigate("/home");
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -54,8 +71,9 @@ const Login = () => {
       <button
         type="submit"
         className="w-full bg-blue-600 px-4 py-6 my-7 mt-16 text-white rounded-[5px] text-2xl hover:bg-blue-400 hover:scale-95 transition-all duration-200"
+        disabled={isLoading}
       >
-        Submit
+        {isLoading ? "Submmiting" : "Submit"}
       </button>
     </form>
   );
