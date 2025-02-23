@@ -30,6 +30,7 @@ npm run dev
 
 
 Backend Setup
+-access backend with http://vitalink.pythonanywhere.com
 -django setup
 -tensorflow on jupyter notebook
 -hosting on pythonanywhere.com
