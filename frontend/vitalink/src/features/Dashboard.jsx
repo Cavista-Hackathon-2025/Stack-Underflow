@@ -77,12 +77,17 @@ const Dashboard = () => {
   return (
     <div className="w-full h-full section">
       <div className="w-full h-full flex justify-between text-white items-center">
-        <div className="w-full flex items-center gap-x-2">
+        <div className=" flex items-center gap-x-2  w-1/2">
           <img src="/vitaLink_logo.jpg" alt="logo image" className="w-[4rem] h-[4rem] rounded-full" />
           <span className="italic text-xl font-bold">vitalLink</span>
         </div>
-        <div className="flex gap-x-2">
-          <div className="text-2xl font-semibold">device:</div>
+        <div className="">
+          <div className=" text-2xl flex items-center text-center gap-x-1 w-full font-semibold">
+            <span className="">device:</span>
+            <span className={` text-xl ${vitalData.online ? "text-green-600" : "text-red-600"}`}>
+              {vitalData.online ? "Connected" : "disconnected"}
+            </span>
+          </div>
         </div>
       </div>
 

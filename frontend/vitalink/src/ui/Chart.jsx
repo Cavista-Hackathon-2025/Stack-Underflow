@@ -55,7 +55,7 @@ const Chart = ({ vitalData }) => {
         </ResponsiveContainer>
       </div>
 
-      <div className="">
+      {/* <div className="">
         <ResponsiveContainer width="100%" height={200}>
           <LineChart
             width={500}
@@ -75,7 +75,7 @@ const Chart = ({ vitalData }) => {
             <Line connectNulls type="monotone" dataKey="health" stroke="red" fill="black" />
           </LineChart>
         </ResponsiveContainer>
-      </div>
+      </div> */}
     </div>
   );
 };
